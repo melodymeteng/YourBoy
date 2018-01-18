@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>015</li>
+    <li>025</li>
+    <li>035</li>
+    <li>045</li>
+    <li>055</li>
+</ul>
+<script>
+    //闭包 外部函数中有一个内部函数 内部函数可以访问外部函数的变量 外部函数的变量不被释放
+    var aLi=document.getElementsByTagName('li');
+    for(var i=0;i<aLi.length;i++){
+        (function (idx) {
+                aLi[i].onclick=function () {
+                    console.log(idx);
+                }
+            })(i);
+    }
+</script>
+</body>
+</html>

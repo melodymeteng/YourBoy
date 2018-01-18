@@ -1,0 +1,64 @@
+body{
+    background-image: url(../img/bg2.jpg);
+    background-size:100%;
+    background-color:#000000;
+    font-family:微软雅黑;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+h1{
+    font-family:微软雅黑;
+    font-size:50px;
+    color:#FFFFFF;
+}
+
+.numtext{
+    border: 0px;
+    width: 90%;
+    height: 100%;
+    text-align: center;
+    background: none;
+    color: #FFFFFF;
+}
+
+.numtd{
+
+}
+
+#input{
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+}
+
+#b_ok{
+    background-color: #87CEEB;
+    color:#FFFFFF;font-family:微软雅黑;
+    font-weight: 900;
+    font-size: 15px;
+    padding:3px 5px;
+    border-radius:100% ;
+    cursor:pointer;
+    width:100px;
+    height:100px;
+}
+
+#b_ok2,#b_ok3{
+    background-color: #87CEEB;
+    color:#FFFFFF;font-family:微软雅黑;
+    font-weight: 900;
+    font-size: 15px;
+    padding:3px 5px;
+    border-radius:15px ;
+    cursor:pointer;
+    width:100px;
+    height:30px;
+}
+
+#t_process,#t_resource{
+    text-align: center;
+    background: none;
+    color: #FFFFFF;
+}

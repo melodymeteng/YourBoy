@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* 6.在页面上输出如下图案。*/
+   function bb(n) {
+
+       for (var i = 1; i <= n; i++) {
+           for (j = 1; j <= n - i; j++) {
+               document.write('&nbsp');
+           }
+           for (var k = 1; k <= i; k++) {
+               document.write('$&nbsp')
+           }
+           document.write('<br/>');
+       }
+   }
+    bb(10);
+</script>
+</body>
+</html>

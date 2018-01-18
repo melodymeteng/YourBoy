@@ -1,0 +1,9 @@
+.mytextarea{
+	width:99%
+
+	/*background-color: #E0F4FF*/
+}
+
+textarea[readonly] {
+    background-color: #FFF7FE;
+}

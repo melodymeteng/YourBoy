@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*h1{*/
+            /*color:red;*/
+            /*font-size: 50px;*/
+        /*}*/
+        /*!*#aa{*!*/
+            /*!*color:blue;*!*/
+        /*!*}*!*/
+        /*h1,p{*/
+            /*color:green;*/
+        /*}*/
+        /*.cc{*/
+            /*color:orange;*/
+        /*}*/
+        /*.dd{*/
+            /*color:red;*/
+            /*font-size: 40px;*/
+        /*}*/
+        /*.ee{*/
+            /*background: red;*/
+        /*}*/
+        /*#div1 h1{*/
+            /*color:pink;*/
+
+        /*}*/
+        /*.tt {*/
+            /*color:salmon; background: yellow  ;*/
+            /*font-size: 80px;*/
+        /*}*/
+        /*#div1{*/
+           /*background:magenta ;*/
+        /*}*/
+        /*#div1 > h1{*/
+            /*color:red;*/
+        /*}*/
+        /*[id="bb"]{*/
+            /*background:seagreen                                                                                                                                                                                                                                                                       ;*/
+        /*}*/
+        /*#div2:hover{*/
+            /*background:red;*/
+        /*}*/
+        /*#ul1 li:nth-child(2){*/
+            /*background:green;*/
+        /*}*/
+        #div3 p:nth-of-type(1){
+            color:red;
+        }
+        #p1{
+            width:200px;
+            height:100px;
+            background:hotpink ;
+
+        }
+        #p1:first-line {
+            color:red;
+        }
+    </style>
+
+</head>
+<body>
+<!--<h1 id="aa" class=" cc  ">ssss</h1>-->
+<!--<p id="bb" class="cc">hhh</p>-->
+<!--<h1>wwww</h1>-->
+<!--<div class="cc ee">vvv</div>-->
+<!--<div id="div1">-->
+    <!--<h1  >sssggg</h1>-->
+    <!--<div>-->
+        <!--<h1>hahahaahahaah</h1>-->
+    <!--</div>-->
+
+<!--</div>-->
+<!--<p class="tt">-->
+    <!--sssssssss-->
+<!--</p>-->
+<!--<div id="div2">div2</divid->-->
+<!--<ul id="ul1">-->
+    <!--<li>item 1</li>-->
+    <!--<li>item 2</li>-->
+    <!--<li>item 3</li>-->
+    <!--<li>item 4</li>-->
+
+<!--</ul>-->
+    <div id="div3">
+        <h1>h11h1h</h1>
+        <p>pppp</p>
+        <h1>h1h1h11h1h</h1>
+    </div>
+<p id="p1">
+    哈哈哈哈哈或或或或或
+    或或或或或或或或或或
+    或或或或或或或或或或
+    或或或或或或或或或或
+
+</p>
+
+<!--(内联样式)内联优先级最高--   h1 是选择标签器 权重值为1 #id选择器 权重值为100
+ h1,p分组选择器 没什么权重值 class类选择器 权重值10   #div1 h1后代选择器 权重值相加
+ 内联的权重值是1000   CSS的选择器是从右往左选择的  #div1 > h1是子代选择器（有兼容性问题）
+  伪类选择器 hover 划过时的效果 nth 是第几个孩子 可以写公式； first-line 伪对象选择器
+  伪类选择器选中的是元素是存在的 伪对象是浏览器去选中而不是选中某一个元素>
+</body>
+</html>

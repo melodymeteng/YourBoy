@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">clcik</button >
+<ul id="ul1">
+    <li>012</li>
+    <li>022</li>
+</ul>
+<script>
+    var oBtn=document.getElementById('btn');
+    var oUl=document.getElementById('ul1');
+    var aLi=document.getElementsByTagName('li');
+    oBtn.onclick=function () {
+        var oLi=document.createElement('li');
+        oLi.innerHTML=Math.random();
+        oUl.appendChild(oLi);
+    };
+    oUl.onclick=function (e) {
+        e=e||window.event;
+        var target=e.target||e.srcElement;//事件源
+        if(target.tagName=='LI'){
+            alert(target.innerHTML);
+        }
+    }
+</script>
+</body>
+</html>

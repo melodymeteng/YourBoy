@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div>
+        <ul>
+            <li>01</li>
+            <li class="aadd">02</li>
+            <li class="aa bb">03</li>
+            <li class="aa">04</li>
+        </ul>
+    </div>
+</head>
+<body>
+<script>
+    function GetEelByClassName(clsName) {
+        var result=[];
+        var allEle=document.getElementsByTagName['*'];//选中所有标签
+        for(var i=0;i<=allEle.length;i++){
+            var arr=allEle[i].className.split('');//分割字符串
+            for(var j=0;j<arr.length;j++){
+                if(allEle[j]==clsName){
+                    result.push(allEle[i]);
+                }
+            }
+        }
+        return result;
+
+    }
+    var aLi=GetEelByClassName('aa');
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].style.background='red';
+    }
+    /*var aLi=document.getElementsByTagName('li');*/
+</script>
+</body>
+</html>

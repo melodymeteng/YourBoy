@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">sufjh</div>
+<ul>
+    <li>01</li>
+    <li class="aa">02</li>
+    <li class="aa">03</li>
+    <li>04</li>
+</ul>
+<script>
+    function $(selector,context) {
+        return new Jquery (selector,context);
+    }
+    function Jquery(selector,context) {
+        this.element=[];
+        if(typeof selector == 'string'){
+            if(selector.charAt(0)=='#'){
+                this.element.push(document.getElementById(selector.substring(1)));
+            }else if(selector.charAt(0)=='.'){
+                this.element=geteEleByClassName(selector.substring(1),context);
+            }
+        }else if(typeof selector == 'function'){
+            addEvent(document,'DOMContentLoaded',selector,false);
+        }
+    }
+    Jquery.prototype.on=function (type,fn) {
+        for(var i=0;i<this.element.length;i++){
+            addEvent( this.element[i],type,fn,false);
+        }
+        return this;
+    };
+    Jquery.prototype.css=function (str1,str2) {
+        for(var i=0;i<this.element.length;i++){
+            if(typeof str1=='string'&& typeof str2=='string'){
+                this.element[i].style[str1]=str2;
+            }else if(typeof str1=='object'&&typeof str2=='undefined'){
+                for(key in str1){
+                    this.element[i].style[key]=str1[key];
+                }
+            }
+        }
+        return this;
+    };
+    $('#div1').on('click',function () {
+        console.log(111);
+    });
+    $('.aa').css()
+    function addEvent(elem,type,fn,flag){
+        if(elem.addEventListener){//标准浏览器
+            elem.addEventListener(type,fn,flag);
+        }else{//ie浏览器
+            elem.attachEvent('on'+type, function(){
+                fn.call(elem);
+            });
+            //绑定事件 this指向window
+        }
+    }
+
+</script>
+</body>
+</html>

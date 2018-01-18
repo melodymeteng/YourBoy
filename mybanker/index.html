@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>银行家算法 —— js实现</title>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet" /> 
+	<link href="css/my.css" rel="stylesheet" /> 
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+	<form name="a" class="form-horizontal">
+		<fieldset >
+			<div id="legend">
+				<legend class="">银行家算法 —— js实现</legend>
+			</div>
+
+
+
+			<div class="row">
+				<div class="span4 Max">
+					<div  class="control-group">
+
+						<!-- Text input-->
+						<div class="controls">
+						<label class="control-label" for="AM">最大需求（MAX）A,B,C</label>
+							<!-- <p class="help-block">按英文逗号分隔</p> -->
+						</div>
+
+					</div>
+					<div  class="control-group">
+
+						<!-- Text input-->
+						<label class="control-label" for="AM">PA</label>
+						<div class="controls">
+							<input class="input-medium" name = 'AM' type="text" placeholder="PA的Max,按英文逗号分隔" class="input-xlarge">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+					<div  class="control-group">
+
+						<!-- Text input-->
+						<label class="control-label" for="BM">PB</label>
+						<div class="controls">
+							<input class="input-medium" name = 'BM' type="text" placeholder="PB的Max,按英文逗号分隔" class="input-xlarge">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+					<div  class="control-group">
+
+						<!-- Text input-->
+						<label class="control-label" for="CM">PC</label>
+						<div class="controls">
+							<input class="input-medium" name='CM' type="text" placeholder="PC的Max,按英文逗号分隔" class="input-xlarge">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+
+					<div  class="control-group">
+
+						<!-- Text input-->
+						<label class="control-label" for="DM">PD</label>
+						<div class="controls">
+							<input class="input-medium" name='DM' type="text" placeholder="PD的Max,按英文逗号分隔" class="input-xlarge">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+
+					<div  class="control-group">
+
+						<!-- Text input-->
+						<label class="control-label" for="EM">PE</label>
+						<div class="controls">
+							<input class="input-medium" name='EM' type="text" placeholder="PE的Max,按英文逗号分隔" class="input-xlarge">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+				</div>
+				<div class="span4 Allocation">
+					<div  class="control-group">
+
+						<!-- Text input-->
+						<div class="controls">
+						<label class="control-label" for="AM">已分配(Allocation) A,B,C</label>
+							<!-- <p class="help-block">按英文逗号分隔</p> -->
+						</div>
+
+					</div>
+					<div  class="control-group">
+
+						<!-- Text input-->
+						<label class="control-label" for="AA">PA</label>
+						<div class="controls">
+							<input class="input-medium" name='AA' type="text" placeholder="PA的Allocation,按英文逗号分隔" class="input-xlarge">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+					<div  class="control-group">
+
+						<!-- Text input-->
+						<label class="control-label" for="BA">PB</label>
+						<div class="controls">
+							<input class="input-medium" name='BA' type="text" placeholder="PB的Allocation,按英文逗号分隔" class="input-xlarge">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+					<div  class="control-group">
+
+						<!-- Text input-->
+						<label class="control-label" for="CA">PC</label>
+						<div class="controls">
+							<input class="input-medium" name='CA' type="text" placeholder="PC的Allocation,按英文逗号分隔" class="input-xlarge">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+
+					<div  class="control-group">
+
+						<!-- Text input-->
+						<label class="control-label" for="DA">PD</label>
+						<div class="controls">
+							<input class="input-medium" name='DA' type="text" placeholder="PD的Allocation,按英文逗号分隔" class="input-xlarge">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+
+					<div  class="control-group">
+
+						<!-- Text input-->
+						<label class="control-label" for="EA">PE</label>
+						<div class="controls">
+							<input class="input-medium" name='EA' type="text" placeholder="PE的Allocation,按英文逗号分隔" class="input-xlarge">
+							<p class="help-block"></p>
+						</div>
+					</div>
+
+				</div>
+				<div class="span4">
+				<div class="control-group">
+
+					<!-- Select Basic -->
+					<label class="control-label">请求资源的进程</label>
+					<div class="controls">
+						<select id="process_num" class="input-xlarge">
+							<option value="-1">请选择</option>
+							<option value="0">PA</option>
+							<option value="1">PB</option>
+							<option value="2">PC</option>
+							<option value="3">PD</option>
+							<option value="4">PE</option>
+						</select>
+					</div>
+
+				</div>
+				<div  class="control-group">
+
+					<!-- Text input-->
+					<label class="control-label" for="request">请求的各资源数量</label>
+					<div class="controls">
+						<input class="" type="text" id="request" name="request" placeholder="A,B,C各资源请求数量,按英文逗号分隔" class="input-xlarge" required="required">
+						<p class="help-block"></p>
+					</div>
+				</div>
+				<div  class="control-group">
+
+					<!-- Text input-->
+					<label class="control-label" for="resource">各资源总数</label>
+					<div class="controls">
+						<input class="" type="text" id="resource" name="resource" placeholder="A,B,C各资源总数,按英文逗号分隔" class="input-xlarge">
+						<p class="help-block"></p>
+					</div>
+				</div>
+
+			<div class="control-group">
+				<label class="control-label"></label>
+
+				<!-- Button -->
+				<div class="controls">
+					<button type="button"  onclick="run()" class="btn btn-success">运行</button>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label"></label>
+
+				<!-- Button -->
+				<div class="controls">
+					<button type="button" onclick="setDefault()" class="btn btn-warning">重置</button>
+				</div>
+			</div>
+						</div>
+						</div>
+		</fieldset>
+	</form>
+	<div>
+<!-- 		<div class="control-group">
+				<label class="control-label"></label>
+
+				<div class="controls">
+					<button type="button" onclick="clearPrint()" class="btn btn-default">清空输出</button>
+				</div>
+			</div> -->
+	<textarea readonly class="mytextarea" name="" placeholder="结果将输出在这里..." id="print" cols="100" rows="100"></textarea>
+	</div>
+		<script src="js/mybanker.js"></script>
+	</body>
+	</html>

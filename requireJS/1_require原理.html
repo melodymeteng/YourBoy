@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var oScript=document.createElement('script');
+    oScript.src='2_index.js';
+    document.body.appendChild(oScript);
+    //动态创建script 标签 异步加载
+    //async标准浏览器 加载的过程中解析文件 文件加载完了就执行了
+    //defer ie  网络加载完 执行文件  保证文件按照顺序执行
+    //加载js文件 通过正则表达式匹配加载文件
+</script>
+</body>
+</html>

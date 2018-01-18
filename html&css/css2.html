@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width:400px;
+            height:400px;
+            background:rgba(80,80,80,0.5);
+            /*opacity:0.5;*/
+            /*background-image:url(1.jpg);*/
+            /*background-repeat: repeat-y ;*/
+            background:url("1.jpg") no-repeat rgba(80,80,80,0.3);
+        }
+        /*#div2{*/
+            /*width:100px;*/
+            /*height:100px;*/
+            /*background:turquoise ;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">hehe</div>
+</div>
+</body>
+</html>
+<!--<opacity 是透明度 但是如果是父子关系的DIV都会被改变透明度 用rgba 可以单独控制透明度 但IE-->
+<!--6.0到8.0都不支持 >-->

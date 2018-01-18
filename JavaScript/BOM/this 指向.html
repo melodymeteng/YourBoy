@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">ssss</div>
+<script>
+    var person={
+        name='lisi';
+        age='18';
+    }
+    function aa(x,y) {//函数中this指向window
+        console.log(x+','+y);
+        console.log(this.name);
+    }
+    //改变this指向（默认指向window）
+    aa.call(person,4,5);//绑定并且调用
+    aa.apply(person,[4,5]);//绑定并且调用 但是要以数组形式
+    aa.bind(person,4,5)();//只绑定 如要调用 要加()
+
+    var oDiv=document.getElementById('div1');
+    oDiv.onclick=function () {
+        console.log(this);//this对当前对象的引用
+    }
+
+</script>
+</body>
+</html>

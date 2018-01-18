@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            border:1px solid #000;
+            overflow: hidden;
+            width: 200px;
+            margin-bottom:20px;
+        }
+        #skin-btn li{
+            height: 14px;
+            width: 14px;
+            background: #f00;
+            float: left;
+            margin: 5px;
+            background: url("img/theme.gif")0 0 no-repeat;
+        }
+        #content div{
+            width: 100px;
+            height: 40px;
+            float: left;
+            margin-right: 10px;
+            text-align: center;
+            line-height:40px;
+            color:#ffffff;
+            background: #f00;
+        }
+        #skin-btn #skin0{
+            background-position: 0 0;
+        }
+        #skin-btn #skin1{
+            background-position: -20px 0;
+        }
+        #skin-btn #skin2{
+            background-position: -40px 0;
+        }
+        #skin-btn #skin3{
+            background-position: -60px 0;
+        }
+        #skin-btn #skin4{
+            background-position: -80px 0;
+        }
+        #skin-btn #skin5{
+            background-position: -100px 0;
+        }
+        #skin-btn #skin0.selected{
+            background-position: 0 -15px;
+        }
+        #skin-btn #skin1.selected{
+            background-position: -20px -15px;
+        }
+        #skin-btn #skin2.selected{
+            background-position: -40px -15px;
+        }
+        #skin-btn #skin3.selected{
+            background-position: -60px -15px;
+        }
+        #skin-btn #skin4.selected{
+            background-position: -80px -15px;
+         }
+        #skin-btn #skin5.selected{
+            background-position: -100px -15px;
+        }
+
+        #content.skin0 div{
+            background:#999999;
+         }
+        #content.skin1 div{
+            background: #AFD400;
+        }
+        #content.skin2 div{
+            background: #FBA60A;
+        }
+        #content.skin3 div{
+            background: #08BECE;
+        }
+        #content.skin4 div{
+            background: #E31599;
+        }
+        #content.skin5 div{
+            background: #BB3BD9;
+        }
+
+    </style>
+</head>
+<body>
+<ul id="skin-btn">
+    <li id="skin0" class="selected"></li>
+    <li id="skin1"></li>
+    <li id="skin2"></li>
+    <li id="skin3"></li>
+    <li id="skin4"></li>
+    <li id="skin5"></li>
+</ul>
+<div id="content">
+    <div>时事新闻</div>
+    <div>娱乐新闻</div>
+</div>
+<script src="../jquery-1.12.4.js"></script>
+<script src="../jquery.cookie.js "></script>
+<script>
+    var $skin=$.cookie('mySkin')||'skin_0';
+    $('#skin-btn li').on('click',function () {
+       $(this).addClass('selected').siblings().removeClass('selected');
+       var $skin=$(this).attr('id');
+       $('#content').attr('class',$skin);
+       $.cookie('mySkin',$skin,{expires:7});
+    });
+    $('#'+$skin).trigger('click');
+</script>
+</body>
+</html>

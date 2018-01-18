@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #small-box{
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+        #drag{
+            width: 200px;
+            height: 200px;
+            background:#b0b0b0;
+            opacity:0.6;
+            filter:alpha(opacity=60);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        #big-box{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 400px;
+            top: 0;
+            overflow: hidden;
+            display: none;
+        }
+        #big-img{
+            left: 0;
+            top: 0;
+            position: absolute;
+        }
+        img{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="small-box">
+    <img src="../img/1.jpg " alt=""/>
+    <div id="drag"></div>
+</div>
+<div id="big-box">
+    <img src="../img/2.jpg" id="big-img" alt="">
+</div>
+<script>
+    var oSmall=document.getElementById('small-box');
+    var oBig=document.getElementById('big-box');
+    var oDrag=document.getElementById('drag');
+    var oBigImg=document.getElementById('big-img');
+    /*oDrag.onmousedown=function (e) {
+        e=e||window.event;
+        var disX=e.clientX-oDrag.offsetLeft+'px';
+        var disY=e.clientY-oDrag.offsetTop+'px';
+        document.onmousemove=function (e) {
+            e=e||window.event;
+            var Ileft=e.clientX-disX;
+            var Itop=e.clientY-disY;
+            oDrag.style.left=Ileft+'px';
+            oDrag.style.top=Itop+'px';
+        }
+
+    }*/
+    oSmall.onmouseover=function () {
+        oDrag.style.display='block';
+        oBig.style.display='block';
+        oSmall.onmousemove();
+    };
+    oSmall.onmouseout=function () {
+        oDrag.style.display='none';
+        oBig.style.display='none';
+    };
+
+    oSmall.onmousemove=function (e) {
+        e = e || window.event;
+        var Ileft = e.clientX - oDrag.offsetWidth / 2;
+        var Itop = e.clientY - oDrag.offsetHeight / 2;
+        var Xmax = oSmall.offsetWidth - oDrag.offsetWidth;
+        var Ymax = oSmall.offsetHeight - oDrag.offsetHeight;
+        if (Ileft < 0) {
+            Ileft = 0;
+        }
+        if (Ileft > Xmax) {
+            Ileft = Xmax;
+        }
+        if (Itop < 0) {
+            Itop = 0;
+        }
+        if (Itop > Ymax) {
+            Itop = Ymax;
+        }
+        oDrag.style.left = Ileft + 'px';
+        oDrag.style.top = Itop + 'px';
+        //var Bleft=(e.clientX-oDrag.offsetWidth/2)*2;
+        //var Btop=(e.clientY-oDrag.offsetHeight/2)*2;
+
+        //oBig.style.left=Bleft+'px';
+        //oBig.style.top=Btop+'px';
+        oBigImg.style.left = -Ileft * 2 + 'px';
+        oBigImg.style.top = -Itop * 2 + 'px';
+    }
+</script>
+</body>
+</html>

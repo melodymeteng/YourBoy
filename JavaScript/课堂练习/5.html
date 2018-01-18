@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*3.计算10!(即 1*2*3＊·…10）的结果(10的阶乘)。*/
+    function fac(n) {
+        if(n==1){
+            return 1;
+        }
+        return n*fac(n-1);
+    }
+    console.log(fac(10));
+    function fac1(n) {
+        var sum=1;
+        for(var i=1; i<=n;i++){
+            sum*=i;
+        }
+        return sum;
+    }
+    console.log(fac1(10));
+   /*4.计算 1!+2!+3!+…..＋10！的结果。*/
+    var sum=0;
+    for(var i=1; i<=10; i++){
+        sum+=fac(i);
+    }
+    console.log(sum);
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(n,age) {//  构造函数 存类的属性  this对当前对象的引用
+        this.name=n;
+        this.age=age;
+    }
+
+    //原型
+    Person.portotype.eat=function () { //原型对象  存类的方法 在new一个Person对象时生成他
+        console.log(this.name+' is eating...');
+    };
+    var p1=new Person('zhangsan',20);
+    var p2=new Person('lisi',10);
+
+    console.log(p1,name);
+    console.log(p2,name);
+
+    p1.eat();
+    p2.eat();
+</script>
+</body>
+</html>

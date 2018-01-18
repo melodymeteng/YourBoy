@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var n=prompt('sss');
+    var a=1;
+    function fac(m) {
+        for(var i=1;i<=m;i++){
+        a=a*i;  /*2* 1*2*3*/
+        }
+        return a;
+    }
+    console.log(fac(1));
+    var sum=0;
+    for(var j=1;j<=n;j++){
+        sum=sum+fac(j);
+    }
+    console.log(sum);
+</script>
+</body>
+</html>

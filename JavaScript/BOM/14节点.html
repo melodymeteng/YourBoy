@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var oDiv2=document.querySelector('.aa')//返回DOM元素，不返回数组，如果有多个只返回第一个
+    var oDiv3=document.querySelectorAll('.aa')//返回数组
+    //document.documentElement //取html节点
+    //document.body//取body节点
+
+
+
+
+
+    function first(elem) {
+        do{
+            elem=elem.firstChild;
+        }while(elem.nodeType!=1);
+        return elem;
+    }
+    var oLi=first(oUL);
+</script>
+</body>
+</html>

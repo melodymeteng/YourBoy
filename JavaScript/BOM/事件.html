@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background:red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">dfghjkl</div>
+<script>
+  /*  var oDiv=document.getElementById('div1');
+    function addEvent(elem,type,fn,flag) {//元素 事件 事件函数 标识（true false）
+        if(elem.addEventListener){
+            elem.addEventListener(type,fn,flag)//标准浏览器 事件 函数 标识
+        }else{
+            elem.attachEvent('on'+type,fn)//IE浏览器 On+事件 函数
+        }
+    }
+    addEvent(oDiv,'click',function () {
+        alert(111);
+    },false);*/
+
+  var oDiv=document.getElementById('div1');
+  function addEvent(elem,type,fn,flag) {//元素 事件 事件函数 标识（true false）
+      if(elem.addEventListener){
+          elem.addEventListener(type,fn,flag);//标准浏览器 事件 函数 标识
+      }else{
+          elem.attachEvent('on'+type,function () {
+              fn.call(elem); //调用fn函数 改变this指向 指向元素
+          }); //绑定事件 this指向window //IE浏览器 On+事件 函数
+      }
+  }
+  addEvent(oDiv,'click',function () {
+      alert(this.innerHTML);
+  },false);
+</script>
+</body>
+</html>
