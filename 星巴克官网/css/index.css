@@ -57,6 +57,20 @@
     font-weight: 700;
     font-size: 14px;
 }
+@media screen and (max-width:960px) {
+    #header{
+        width: 100%;
+    }
+    .headleft{
+        width: 41%;
+    }
+    .headmid{
+        width: 18%;
+    }
+    .headright{
+        width: 41%;
+    }
+}
 /*顶部结束*/
 /*第一张大图开始*/
 .item{

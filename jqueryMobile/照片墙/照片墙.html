@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <link rel="stylesheet" href="../jquery.mobile-1.4.5.min.css"/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            height: 100%;
+            width: 100%;
+        }
+        #container{
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            overflow: hidden;
+        }
+        .Img{
+            width: 23%;
+            margin-bottom:2%;
+            margin-right:2%;
+            float: left;
+
+        }
+        .Img img{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        span{
+            width: 125px;
+            height: 125px;
+            /*background: #000;*/
+            opacity: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="content">
+
+    </div>
+</div>
+<script src="../jquery-1.12.4.js"></script>
+<script src="../jquery.mobile-1.4.5.min.js"></script>
+<script>
+    var num=0;
+    var iNow=0;
+    for(var i=0;i<24;i++){
+        var oImg=new Image();
+        oImg.onload=function () {
+            num++;
+            if(num==48){
+                loadSuccess();
+            }
+        };
+        oImg.src='img/thumbs/'+(i+1)+'.jpg';
+    }
+    for( var i=0;i<24;i++){
+        var oImg=new Image();//大图
+        oImg.onload=function () {
+            num++;
+            if(num==48){
+                loadSuccess();
+            }
+        };
+        oImg.src='img/'+(i+1)+'.jpg';
+    }
+    var oContent=document.getElementById('content');
+    var aDiv=document.getElementsByTagName('div');
+    var flag=true;
+    function loadSuccess() {
+        var count=0;
+        for(var i=1;i<5;i++){
+            for(var j=1;j<7;j++){
+                var oDiv=document.createElement('div');
+                var Img=document.createElement('img');
+                oDiv.className='Img';
+                count++;
+                oDiv.style.background='url(img/thumbs/'+count+'.jpg) no-repeat';
+                Img.src='img/thumbs/'+count+'.jpg';
+                oDiv.index = count;
+                oDiv.innerHTML='<span></span>';
+                oDiv.append(Img);
+                var aSpan=oContent.getElementsByTagName('span');
+                $('.Img').on('click',function () {
+                    if(flag){
+                        for(var i=0;i<24;i++){
+                            var oDiv=aDiv[i];
+                            oDiv.style.width=98+'%';
+                            aSpan[i].style.display = 'block';
+                            aSpan[i].style.opacity=1;
+                            aSpan[i].style.background='url(img/'+this.index+'.jpg)';
+                        }
+                        iNow=this.index;
+                    } else{
+                        for(var i=0;i<24;i++){
+                            var oDiv=aDiv[i];
+                            oDiv.style.width=23+'%';
+                        }
+                    }
+                    flag=!flag;
+                });
+                oContent.append(oDiv);
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
