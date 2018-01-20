@@ -96,6 +96,171 @@ a{
     font-size: 14px;
     color:#b89f7a;
 }
+
+#app{
+    background:#efebe8 url('../img/app-web.png') 0 0 no-repeat;
+    padding-top:24%;
+    background-size: contain;
+    position: relative;
+}
+#app img{
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    left: 41%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+  }
+.app-text{
+    position: absolute;
+    width: 35%;
+    left: 41%;
+    top: 50%;
+    -webkit-transform: translateY(-50%) translateX(147px);
+}
+.app-text p{
+    font-size: 18px;
+    line-height:24px;
+    color: #3d3d3d;
+}
+.app-text a{
+    color: #b89f7a;
+    font-size: 16px;
+}
+.app-text .btnss{
+    display: none;
+}
+#mosaic{
+    overflow: hidden;
+}
+#mosaic a{
+    display: block;
+    width: 50%;
+    float: left;
+    position: relative;
+}
+#mosaic img{
+    width: 100%;
+}
+#mosaic h2{
+    position: absolute;
+    text-align: center;
+    bottom: 40px;
+    width: 100%;
+}
+#mosaic .mosaic-left h2{
+    color: #D81026;
+    font-size: 30px;
+    font-weight: 400;
+}
+#mosaic .mosaic-right h2{
+    color: #fffffe;
+    font-size: 30px;
+    font-weight: 400;
+}
+#mosaic h3{
+    position: absolute;
+    text-align: center;
+    bottom: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+#mosaic .mosaic-left  h3,#mosaic .mosaic-right h3{
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 22px;
+    letter-spacing: 3px;
+}
+#mosaic .mosaic-left  h3{
+    color: #000000;
+}
+#mosaic .mosaic-right h3{
+    color: #a98e67;
+}
+
+#say{
+    background: #106e4b;
+    margin-right:auto;
+    margin-left:auto;
+    padding: 0 15px;
+}
+#say .imglist{
+    width: 767px;
+    padding:30px 0;
+    margin: auto;
+    display: flex;
+}
+#say .imglist1,#say .imglist2{
+    width: 50%;
+    height: 162px;
+    display: flex;
+    align-items:center;
+}
+#say .img1{
+    background: url('../img/img1.png') center/contain no-repeat ;
+    width: 250px;
+    height: 127.5px;
+    margin: 0 25px;
+}
+#say .img2 {
+    background: url('../img/img2.png') center/contain no-repeat;
+    width: 150px;
+    height: 150px;
+    margin: 0 25px;
+}
+#say .img3{
+    background: url('../img/img3.png') center/contain no-repeat;
+    width: 150px;
+    height: 162px;
+    margin: 0 25px;
+}
+#say .img4{
+    background: url('../img/img4.png') center/contain no-repeat;
+    width: 280px;
+    height: 142.8px;
+    margin: 0 25px;
+
+}
+
+#apple-watch{
+    display: flex;
+    -webkit-justify-content: center;
+}
+.watch-img {
+    width: 408px;
+    height: 220px;
+}
+.watch-info {
+    width: 342px;
+    height: 112px;
+    font-size: 17px;
+    text-align: left;
+    padding: 35px 68px 0 68px;
+    margin:0 0 14px;
+    line-height: 28px;
+    color: #3d3d3d;
+}
+.watch-info a{
+    color: #b89f7a;
+    font-size: 16px;
+}
+.watch-qr{
+    padding-top: 35px;
+    padding-left: 20px;
+}
+.watch-qr .qr1 {
+    width: 130px;
+    height: 130px;
+}
+.watch-qr .qr2{
+    display: none;
+}
+.watch-qr p{
+    width: 130px;
+    font-size: 16px;
+    font-weight:bold;
+    text-align: center;
+}
 @media screen and (max-width: 767px ){
     .rewards-mark , .rewards-content {
         width: 100%;
@@ -134,5 +299,122 @@ a{
         bottom: 10px;
         right:6px;
 
+    }
+    #app{
+        background-image:url('../img/app-mobile.png');
+        padding-top: 98%;
+    }
+    #app img{
+        display: none;
+    }
+    .app-text{
+        position: static;
+        width: 92%;
+        padding: 4%;
+        text-align: center;
+        -webkit-transform: translateX(0) translateY(0);
+    }
+    .app-text{
+        margin-top: 40px;
+        text-align: center;
+    }
+    .app-text .btnss{
+        display: block;
+        background: url('../img/udp-starbucks-cn.svg') center center  no-repeat;
+        margin: 10px auto 0;
+        width: 220px;
+        height: 80px;
+    }
+    #mosaic a{
+        width: 100%;
+    }
+    #say .img1{
+        background-image: url('../img/img3.png');
+        width: 150px;
+        height: 162px;
+    }
+    #say .img2{
+        background-image: url('../img/img1.png');
+        width: 150px;
+        height: 76.5px;
+    }
+    #say .img3{
+        background-image: url('../img/img2.png');
+        width: 120px;
+        height: 120px;
+    }
+    #say .img4{
+        width: 180px;
+        height: 91.8px;
+    }
+    #say .imglist{
+        -webkit-flex-direction: column;
+        width: 100%;
+    }
+    #say .imglist1{
+        height: 172px;
+    }
+    #say .imglist2{
+        height: 130px;
+    }
+    #say .imglist1,#say .imglist2{
+        width: 100%;
+        padding: 5px 0;
+        display: flex;
+        -webkit-justify-content: center;
+    }
+}
+@media screen and (max-width: 374px ){
+    #say .imglist1,#say .imglist2{
+        display: block;
+    }
+    #say .img1{
+        width: 120px;
+        height: 130px;
+    }
+    #say .img2{
+        width: 120px;
+        height: 61.2px;
+        top: -35px;
+    }
+    #say .img3{
+        width: 90px;
+        height: 90px;
+    }
+    #say .img4{
+        width: 150px;
+        height: 76.5px;
+        top: -5px;
+        right: -15px;
+    }
+}
+@media screen and (max-width: 1066px) {
+    #apple-watch{
+        display: block;
+        width: 100%;
+    }
+    .watch-qr p,.watch-qr .qr1{
+        display: none;
+    }
+    .watch-qr{
+        width: 100%;
+        padding:0;
+    }
+    .watch-qr .qr2{
+        display: block;
+        margin: 0 auto 55px;
+        /*margin-bottom:55px;*/
+    }
+    .watch-img{
+        margin: 0 auto;
+    }
+    .watch-info {
+        width: 94%;
+        font-size: 17px;
+        text-align: center;
+        padding: 0 3%;
+        line-height: 28px;
+        color: #3d3d3d;
+        height:auto;
     }
 }
