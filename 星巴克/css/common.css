@@ -12,7 +12,6 @@ li{
 #header{
     display: -webkit-box;
     height: 100px;
-    width: 1px;
     box-shadow: 0 -5px 5px 5px rgba(0,0,0,0.1);
     margin-top: 3px;
 }
