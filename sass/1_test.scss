@@ -1,0 +1,8 @@
+$color:red;
+$name:color;
+$fz:36px;
+div{
+    background:$color;
+    #{$name}:blue;
+    font-size: $fz;
+}
