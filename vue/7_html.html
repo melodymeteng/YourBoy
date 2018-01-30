@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;   
+            height: 200px;
+        }
+        .red{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="fn()">ssss</button>
+        <div id="div1" :class="{red:isRed}"></div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                isRed:true
+            },
+            methods:{
+                fn:function(){
+                    this.isRed=!this.isRed
+                    console.log(1111)
+                }
+            }
+        })
+    </script>   
+</body>
+</html>

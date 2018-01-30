@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1"></div>
+    <input type="text" id="ipt">
+    <script src="vue.js"></script>
+    <script>
+        obj={
+            msg:"wertyui"
+        }
+        Object.defineProperty(obj,"msg",{
+            set:function(val){
+                document.getElementById('div1').innerHTML=val;
+                //将要改变的值用引号引起来 "msg" val就是改变的值 将改变的值在#div1上显示出来
+            }
+        });
+        var oIpt=document.getElementById('ipt');
+        oIpt.onkeyup = function(){
+            obj.msg=this.value;
+        }
+    </script>
+</body>
+</html>

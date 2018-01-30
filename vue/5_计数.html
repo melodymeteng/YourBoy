@@ -8,21 +8,22 @@
 </head>
 <body>
     <div id="app">
-        <div v-html=msg></div>
-        <div v-text=msg></div>
-        <input type="text" v-model="msg"> 
-        <!-- 双向绑定 固定语法v-model访问msg -->
+        <button @click='fn(5)'>点击</button>
+        <div>
+            {{num}}
+        </div>
     </div>
-    <div id="app2">
-        {{msg}}
-    </div>
-    <script src="vue.js" ></script>
+    <script src="vue.js"></script>
     <script>
         var vm=new Vue({
-            el:'#app',
+            el:"#app",
             data:{
-                msg:'hello world',
-                a:'rfghjk'
+               num:0
+            },
+            methods:{
+                fn:function(x){
+                    this.num += x;
+                }
             }
         })
     </script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            background: gold;
+        }
+        #app{
+            width: 300px;
+            margin: 0 auto;
+            margin-bottom: 3px;
+        }
+        ul span{
+            float:right
+            
+        }
+        #app li{
+            height: 50px;
+            
+        }
+        .bg{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>services</h1>
+        <ul>
+            <li v-for='obj in arr' @click='fn(obj)'
+            :class='{bg:obj.isBg}'>{{obj.name}} <span>{{obj.per}}</span> </li>
+        </ul>
+        <hr/>
+        <div>
+            <span>total</span>
+            <span>{{num}}</span>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                arr:[
+                    {name:'aaa',per:234,isBg:false},
+                    {name:'bbb',per:345,isBg:false},
+                    {name:'ccc',per:567,isBg:false},
+                    {name:'ddd',per:789,isBg:false},
+                    {name:'eee',per:910,isBg:false},
+                ],
+                num:0
+            },
+            methods:{
+                fn:function(o){
+                    o.isBg=!o.isBg;
+                    if(o.isBg){
+                        this.num+=o.per;
+                    }else{
+                        this.num-=o.per;
+                    }
+                }
+            }
+
+        })
+    </script>
+</body>
+</html
