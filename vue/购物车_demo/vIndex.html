@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cart">
+        <button id="btn-add">添加商品</button>
+        <table id="tbl">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>商品图片</th>
+                    <th>商品信息</th>
+                    <th>赠送</th>
+                    <th>商品金额</th>
+                    <th>商品数量</th>
+                    <th>总金额</th>
+                    <th>编辑</th>
+                </tr>
+            </thead>
+            <tbody id="product-list">
+                <tr  v-for="obj in proList">
+                    <td>
+                        <input @click="check(obj)" v-model="item" type="checkbox" :value="obj">
+                    </td>
+                    <td>
+                        <img :src="obj.productImg" alt="" width="100">
+                    </td>
+                    <td>{{obj.productName}}</td>
+                    <td>
+                        <ul>
+                            <li v-for="obj2 in obj.parts">{{obj2.partsName}}</li>
+                        </ul>
+                    </td>
+                    <td class="price">{{obj.productPrice}}</td>
+                    <td>
+                        <button @click="prev(obj)" class="sub">-</button>
+                        <input type="text" :value="obj.productQuentity">
+                        <button @click="next(obj)" class="add">+</button>
+                    </td>
+                    <td class="total-price">{{obj.productPrice*obj.productQuentity}}</td>
+                    <td>
+                        <a href="javascript:;" class="del">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6">
+                    </td>
+                    <td>
+                        总计：
+                        <span  id="total">{{total}}</span>
+                    </td>
+                    <td>
+                        <button>结账</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
+    <script src="../vue.js"></script>
+    <script src="axios.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#cart",
+            data:{
+                proList:[],
+                total:0,
+                item:['11']
+            },
+            beforeCreate:function(){
+                axios.get('cart.json').then((res) => {
+                    this.proList = res.data.result.productList;
+                });
+            },
+            methods:{
+                next:function(o){
+                    o.productQuentity+=1
+                },
+                prev:function(x){
+                    if(x.productQuentity>0){
+                        x.productQuentity-=1
+                    }
+                },
+                check:function(z){
+                    console.log(vm.item);
+                    // console.log(parseInt(z.productPrice*z.productQuentity));
+                    // if(item.on){
+                    //     this.total+=parseInt((z.productPrice*z.productQuentity))
+                    // }else if(item.off){
+                    //     this.total-=parseInt((z.productPrice*z.productQuentity))
+                    // }
+                }
+            }
+        });
+
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
