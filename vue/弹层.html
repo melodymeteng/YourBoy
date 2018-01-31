@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .login{
+        width: 300px;
+        height: 200px;
+        background: red;
+    }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="show=true; sign=false;">登录</button>
+    <button @click="show=false; sign=true;">注册</button>
+    <login v-show="show">
+        <div slot="id">登录<input type="text"></div>
+        <div slot="password">注册<input  type="text"></div>
+        <div slot="close"><span @click="close">x</span></div>
+    </login>
+    <signin v-show="sign">
+        <div slot="id">登录<input type="text"></div>
+        <div slot="password">注册<input  type="text"></div>
+        <div slot="code">验证码<input  type="text"></div>
+        <div slot="close"><span @click="closecode">x</span></div>
+    </signin>
+</div>
+<script src="vue.js"></script>
+<script type="text/x-template" id="log">
+<div class="login">
+    <slot name="id">
+        <input type="text">
+    </slot>
+    <slot name="password">
+        <input type="text">
+    </slot>
+    <slot name="close">
+        <span></span>
+    </slot>
+</div>
+</script>
+<script type="text/x-template" id="sign">
+    <div class="signin">
+        <slot name="id">
+            <input type="text">
+        </slot>
+        <slot name="password">
+            <input type="text">
+        </slot>
+        <slot name="code">
+            <input type="text">
+        </slot>
+        <slot name="close">
+            <span></span>
+        </slot>
+    </div>
+    </script>
+<script>
+    var vm=new Vue({
+    el:"#app",
+    data:{
+        show:false,
+        sign:false
+    },
+    components:{
+        login:{
+        template:"#log"
+        
+        },
+        signin:{
+        template:"#sign"
+        
+        }
+    },
+    methods:{
+        // login(){
+        //     this.show=!this.show
+            
+        // },
+        // signin(){
+        //     this.sign=!this.sign
+        // },
+        close(){
+            this.show=!this.show
+        },
+        closecode(){
+            this.sign=!this.sign 
+        }
+    }
+
+
+    })
+</script>
+</body>
+</html>

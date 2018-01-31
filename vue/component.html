@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <demo title="我是1" content="我是内容1"></demo>
+        <demo title="我是2" content="我是内容2"></demo>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        // 根元素只能有一个 全局组件
+        // Vue.component('demo',{
+        //     template:'<div><h1>alskdjlkajdkl</h1><p>22222</p></div>'
+        // })
+        var vm=new Vue({
+            el:"#app",
+            data:{
+
+            },
+            components:{
+                demo:{
+                    template:'<div><h1>{{title}}</h1><p>{{content}}</p></div>',
+                    props:['title','content']
+                    //先从组件里获取到title,content将其放入到props中 再在template中获取title,content
+                }
+            }
+
+        })
+
+    </script>
+</body>
+</html>0
