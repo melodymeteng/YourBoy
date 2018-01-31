@@ -33,9 +33,9 @@
                 </tr>
             </thead>
             <tbody id="product-list">
-                <tr  v-for="obj in proList">
+                <tr  v-for="(obj,index) in proList">
                     <td>
-                        <input @click="check(obj)" v-model="item" type="checkbox" :value="obj">
+                        <input  v-model="item" type="checkbox" :value="obj">
                     </td>
                     <td>
                         <img :src="obj.productImg" alt="" width="100">
@@ -54,7 +54,7 @@
                     </td>
                     <td class="total-price">{{obj.productPrice*obj.productQuentity}}</td>
                     <td>
-                        <a href="javascript:;" class="del">删除</a>
+                        <a href="javascript:;" @click="remove(index,obj)" class="del">删除</a>
                     </td>
                 </tr>
             </tbody>
@@ -82,8 +82,7 @@
             el:"#cart",
             data:{
                 proList:[],
-                total:0,
-                item:['11']
+                item:[]
             },
             beforeCreate:function(){
                 axios.get('cart.json').then((res) => {
@@ -99,17 +98,22 @@
                         x.productQuentity-=1
                     }
                 },
-                check:function(z){
-                    console.log(vm.item);
-                    // console.log(parseInt(z.productPrice*z.productQuentity));
-                    // if(item.on){
-                    //     this.total+=parseInt((z.productPrice*z.productQuentity))
-                    // }else if(item.off){
-                    //     this.total-=parseInt((z.productPrice*z.productQuentity))
-                    // }
+                remove:function (idx,obj) {
+                    this.proList.splice(idx,1);
+                    this.item.splice(this.item.indexOf(obj),1); //取到当前被勾选元素的索引 indexOf
+                    //方法， 然后删除它
+                }
+            },
+            computed:{
+                total:function () {
+                    var sum=0;
+                    for(var i=0;i<this.item.length;i++){
+                        sum+=this.item[i].productPrice*this.item[i].productQuentity
+                    }
+                    return sum;
                 }
             }
-        });
+        })
 
 
 
