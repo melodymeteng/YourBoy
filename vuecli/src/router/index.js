@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Test1 from '@/components/Test1'
 import subTest1 from '@/components/subTest1'
 import subTest2 from '@/components/subTest2'
+import Conut from '@/components/Conut'
 Vue.use(Router)
 
 export default new Router({
@@ -12,6 +13,10 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
+    },
+    {
+      path:'/conut',
+      component:Conut
     },
     {
       path: '/test/',
