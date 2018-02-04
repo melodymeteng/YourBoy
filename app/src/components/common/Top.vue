@@ -1,6 +1,11 @@
 <template>
-    <div class="com-top">
-        top
+    <div class="com-top" :style="{background:$store.state.bgColor}">
+        <router-link to="/">
+            <span class="com-top-btn">首页</span>
+        </router-link>
+        <h2>
+            {{$store.state.title}}
+        </h2>
     </div>
 </template>
 
@@ -13,4 +18,22 @@
 <style scoped>
     .com-top{
         height: 1rem;
-        
+        background:rgb(33, 150, 243); 
+        position: fixed;
+        left: 0;
+        top:0;
+        width: 100%;
+    }
+    .com-top-btn{
+        color:#fff;
+        position: absolute;
+        left: 0.2rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .com-top h2{
+        line-height: 1rem;
+        text-align: center;
+        color:#fff;
+    }
+</style>
