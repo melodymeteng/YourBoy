@@ -1,7 +1,7 @@
 <template>
     <div class="movieList">
         <ul>
-            <li v-for="(obj,index) in movies" :key='index'>
+            <li v-for="(obj,index) in movies" :key='index' @click="fn(obj.id)">
                 <div class="img-box">
                     <img :src="obj.img" alt="">
                 </div>
@@ -49,6 +49,9 @@
 
                     });
                 }
+            },
+            fn(id){
+                this.$router.push('/movieDetail/'+id)
             }
         },
         mounted:function(){
