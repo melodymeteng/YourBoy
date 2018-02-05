@@ -32,6 +32,7 @@
             }
         },
         mounted:function(){
+            this.$store.commit('change',{bgColor:'rgb(33, 150, 243)',title:'Movie'});
             axios.get(API_INTERFACE+'http://m.maoyan.com/movie/'+this.$route.params.id+'.json').then((res)=>{
                 this.details=res.data.data.MovieDetailModel
             }).catch(()=>{
